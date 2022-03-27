@@ -1,0 +1,20 @@
+{
+    "name": "darwi/senamas",
+    "description": "this is a project to practice the mvc",
+    "type": "project",
+    "require": {
+        "vlucas/phpdotenv": "^5.4"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Darwi\\Senamas\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Darwin Grisales",
+            "email": "darwingrisalesg@gmail.com"
+        }
+    ]
+}
