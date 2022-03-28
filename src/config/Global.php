@@ -1,5 +1,3 @@
 <?php
-require ('../vendor/autoload.php');
-
-$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
-$dotenv->load();
+define('CONTROLADOR_DEFECTO', "Paciente");
+define("ACCION_DEFECTO", "index");
