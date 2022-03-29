@@ -60,4 +60,16 @@ class PacienteController extends BaseController
 
     echo $num1 + $num2;
   }
+
+  public function borrar()
+  {
+    $documento = isset($_GET['documento']) ? $_GET['documento'] : "";
+
+    if ($documento) {
+      $paciente = new Paciente($documento);
+
+      $paciente->borrar($documento);
+    }
+    header("Location: index.php?controller=Paciente&action=index");
+  }
 }

@@ -238,4 +238,11 @@ telefono, fecha_nacimiento, estado, genero, eps, email, pass) VALUES (?, ?, ?, ?
     // Excecute
     $sql->execute();
   }
+
+  public function borrar($documento)
+  {
+    $sql = $this->dbConnection->prepare("DELETE from paciente where documento = ?");
+    $sql->bindParam(1, $documento);
+    $sql->execute();
+  }
 }

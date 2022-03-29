@@ -101,7 +101,7 @@
               <div class="col-lg-2">
                 <div class="right col-1">
                   <a href="<?php echo
-                            "index.php?controller=Paciente&action=borrar&id=" . $row->documento; ?>" class="btn btn-danger">Borrar</a>
+                            "index.php?controller=Paciente&action=borrar&documento=" . $row->documento; ?>" class="btn btn-danger">Borrar</a>
                 </div>
               </div>
             </div><br>
