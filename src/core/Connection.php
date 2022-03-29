@@ -1,5 +1,5 @@
 <?php
-include_once $_SERVER['DOCUMENT_ROOT'] . '/src/config/dbConfig.php';
+include_once 'config/dbConfig.php';
 
 abstract class Connection
 {

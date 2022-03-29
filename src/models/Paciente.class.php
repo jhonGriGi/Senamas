@@ -1,5 +1,5 @@
 <?php
-require_once $_SERVER['DOCUMENT_ROOT'] . '/src/core/BaseModel.php';
+require_once 'core/BaseModel.php';
 
 class Paciente extends BaseModel
 {
@@ -213,7 +213,7 @@ class Paciente extends BaseModel
   {
     // Preparar la consulta para insertar un paciente en la BD
     $sql = $this->dbConnection->prepare("INSERT INTO paciente (documento, nombre, direccion,
-telefono, fecha_nacimiento, estado, genero, eps, email, password) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?,
+telefono, fecha_nacimiento, estado, genero, eps, email, pass) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?,
 ?)");
     $documento = $this->getDocumento();
     $nombre = $this->getNombre();

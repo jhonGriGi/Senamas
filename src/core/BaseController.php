@@ -3,8 +3,8 @@ class BaseController
 {
   public function __construct()
   {
-    require_once __DIR__ . '/Connection.php';
-    require_once __DIR__ . '/BaseModel.php';
+    require_once 'Connection.php';
+    require_once 'BaseModel.php';
 
     //Incluir todos los modelos
     /*

@@ -1,5 +1,4 @@
 <?php
-require_once $_SERVER['DOCUMENT_ROOT'] . '/src/core/BaseController.php';
 
 class PacienteController extends BaseController
 {
@@ -52,5 +51,13 @@ class PacienteController extends BaseController
   public function hola()
   {
     echo "Hola ADSI día";
+  }
+
+  public function twoSum()
+  {
+    $num1 = isset($_GET['num1']) ? $_GET['num1'] : "";
+    $num2 = isset($_GET['num2']) ? $_GET['num2'] : "";
+
+    echo $num1 + $num2;
   }
 }

@@ -1,7 +1,7 @@
 <?php
-require $_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php';
+require '../vendor/autoload.php';
 
-$dotenv = Dotenv\Dotenv::createImmutable($_SERVER['DOCUMENT_ROOT']);
+$dotenv = Dotenv\Dotenv::createImmutable('../');
 $dotenv->load();
 
 define("DB_DRIVER", $_ENV["DB_DRIVER"]);
