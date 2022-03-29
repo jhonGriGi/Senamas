@@ -239,10 +239,53 @@ telefono, fecha_nacimiento, estado, genero, eps, email, pass) VALUES (?, ?, ?, ?
     $sql->execute();
   }
 
+  public function seleccionar($documento)
+  {
+    $sql = $this->dbConnection->prepare("SELECT * FROM paciente WHERE documento = ?");
+
+    $sql->bindParam(1, $documento);
+    $sql->execute();
+
+    $resultSet = null;
+    // Ahora vamos a indicar el fetch mode cuando llamamos a fetch:
+    if ($row = $sql->fetch(PDO::FETCH_OBJ)) {
+      $resultSet = $row;
+    }
+    return $resultSet;
+  }
+
   public function borrar($documento)
   {
     $sql = $this->dbConnection->prepare("DELETE from paciente where documento = ?");
     $sql->bindParam(1, $documento);
+    $sql->execute();
+  }
+
+  public function actualizar()
+  {
+    $sql = $this->dbConnection->prepare("UPDATE paciente SET nombre = ?, direccion = ?, telefono = ?, fecha_nacimiento = ?, estado = ?, genero = ?, eps = ?, email = ?, pass = ? WHERE documento = ?");
+
+    $documento = $this->getDocumento();
+    $nombre = $this->getNombre();
+    $direccion = $this->getDireccion();
+    $telefono = $this->getTelefono();
+    $fecha_nac = $this->getFecha_nacimiento();
+    $estado = $this->getEstado();
+    $genero = $this->getGenero();
+    $eps = $this->getEps();
+    $email = $this->getEmail();
+    $pass = $this->getPassword();
+    $sql->bindParam(1, $nombre);
+    $sql->bindParam(2, $direccion);
+    $sql->bindParam(3, $telefono);
+    $sql->bindParam(4, $fecha_nac);
+    $sql->bindParam(5, $estado);
+    $sql->bindParam(6, $genero);
+    $sql->bindParam(7, $eps);
+    $sql->bindParam(8, $email);
+    $sql->bindParam(9, $pass);
+    $sql->bindParam(10, $documento);
+    // Excecute
     $sql->execute();
   }
 }

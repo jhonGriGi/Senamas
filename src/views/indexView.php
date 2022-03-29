@@ -12,15 +12,8 @@
 </head>
 
 <body>
-  <header class="d-flex justify-content-center py-3">
-    <ul class="nav nav-pills">
-      <li class="nav-item"><a href="#" class="nav-link " aria-current="page">Home</a></li>
-      <li class="nav-item"><a href="#" class="nav-link active">Features</a></li>
-      <li class="nav-item"><a href="#" class="nav-link">Pricing</a></li>
-      <li class="nav-item"><a href="#" class="nav-link">FAQs</a></li>
-      <li class="nav-item"><a href="#" class="nav-link">About</a></li>
-    </ul>
-  </header></br>
+  <?php require_once 'views/templates/header.php'; ?>
+  </br>
   <div class="container">
     <div class="row">
       <div class="col-lg-4">
@@ -74,7 +67,7 @@
             <label for="txtPassword">Contraseña: </label>
             <input type="password" class="form-control" id="txtPassword" name="txtPassword" placeholder="">
           </div>
-          <button type="submit" class="btn btn-success">Guardar</button>
+          <button type="submit" class="btn btn-success mt-4">Guardar</button>
         </form>
       </div>
       <div class="col-lg-8">
@@ -98,10 +91,14 @@
               <div class="col-lg-3"><?php echo $row->nombre; ?></div>
               <div class="col-lg-3"><?php echo $row->telefono; ?></div>
               <div class="col-lg-2"><?php echo $row->eps; ?></div>
-              <div class="col-lg-2">
-                <div class="right col-1">
+              <div class="col-lg-2 d-flex justify-between">
+                <div class=" col-1 me-4">
                   <a href="<?php echo
-                            "index.php?controller=Paciente&action=borrar&documento=" . $row->documento; ?>" class="btn btn-danger">Borrar</a>
+                            "index.php?controller=Paciente&action=borrar&documento=" . $row->documento; ?>" class="btn btn-danger">B<i class="fa-thin fa-trash-can"></i></a>
+                </div>
+                <div class=" col-1 mx-2">
+                  <a href="<?php echo
+                            "index.php?controller=Paciente&action=seleccionar&documento=" . $row->documento; ?>" class="btn btn-warning">E</a>
                 </div>
               </div>
             </div><br>
@@ -113,16 +110,7 @@
     </div> <!-- row -->
     <br><br>
   </div>
-  <footer class="py-3 my-4">
-    <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-      <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Home</a></li>
-      <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Features</a></li>
-      <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Pricing</a></li>
-      <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">FAQs</a></li>
-      <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">About</a></li>
-    </ul>
-    <p class="text-center text-muted">© 2021 Company, Inc</p>
-  </footer>
+  <?php require_once 'views/templates/footer.php'; ?>
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   <script src="js/jquery.min.js"></script>

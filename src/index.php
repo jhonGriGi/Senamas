@@ -19,7 +19,6 @@ switch (ucwords($controller)) {
     $controlador = CONTROLADOR_DEFECTO;
     break;
 }
-echo "hola index";
 $strFileController = 'controllers/' . $controlador . '.php';
 # Si el archivo existe se procede a crear un objeto de dicha clase controlador
 if (is_file($strFileController)) {
