@@ -12,7 +12,6 @@
 </head>
 
 <body>
-  <?php require_once 'views/templates/header.php'; ?>
   </br>
   <div class="container">
     <div class="row">
@@ -71,7 +70,6 @@
         </form>
       </div>
 
-      <?php require_once 'views/templates/footer.php'; ?>
       <!-- Optional JavaScript -->
       <!-- jQuery first, then Popper.js, then Bootstrap JS -->
       <script src="js/jquery.min.js"></script>

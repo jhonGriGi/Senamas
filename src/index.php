@@ -8,12 +8,15 @@ require_once 'core/BaseController.php';
 // Se capturan el controlador y la accion que vienen por metodo GET
 $controller = isset($_GET['controller']) ? $_GET['controller'] : "";
 $action = isset($_GET['action']) ? $_GET['action'] : "";
-
+require_once 'views/templates/header.php';
 # Se evalua el controlador que llega por URL, en caso que no llegue nada, se toma el Controlador por defecto
 switch (ucwords($controller)) {
     # EN la medidad que se incluyan más controladores, se deben referenciar en un case
   case 'Paciente':
     $controlador = 'PacienteController';
+    break;
+  case 'Especialidad':
+    $controlador = 'EspecialidadController';
     break;
   default:
     $controlador = CONTROLADOR_DEFECTO;
@@ -39,3 +42,5 @@ if (is_file($strFileController)) {
     echo "No existe el método en el controlador";
   }
 }
+require_once 'views/templates/footer.php';
+echo " hola footer";
