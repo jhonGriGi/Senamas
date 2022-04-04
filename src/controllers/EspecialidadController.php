@@ -15,7 +15,8 @@ class EspecialidadController extends BaseController
     $allEspecialidades = $especialidad_obj->getAll();
     // $especialidad = new Especialidad();
     // $lista_especialidades = $especialidad->getAll();
-    require_once 'views/especialidadView.php';
+    $current_view = "estadia/especialidadView.php";
+    require_once 'views/layouts/' . $this->layout;
   }
 
   public function create()
@@ -38,7 +39,7 @@ class EspecialidadController extends BaseController
     if ($codigo) {
       $especialidad = new Especialidad($codigo);
 
-      $especialidad->borrar($codigo);
+      $especialidad->delete("codigo", $codigo);
     }
     header("Location: index.php?controller=Especialidad&action=index");
   }
@@ -50,9 +51,10 @@ class EspecialidadController extends BaseController
     if ($codigo) {
       $especialidad = new Especialidad($codigo);
 
-      $resultado = $especialidad->seleccionar($codigo);
+      $resultado = $especialidad->getOne("codigo", $codigo);
 
-      require_once 'views/editarEspecialidadView.php';
+      $current_view = "estadia/editarEspecialidadView.php";
+      require_once 'views/layouts/' . $this->layout;
     }
   }
 
@@ -63,9 +65,14 @@ class EspecialidadController extends BaseController
       $nombre = isset($_POST['nombre']) ? $_POST['nombre'] : "";
       $descripcion = isset($_POST['descripcion']) ? $_POST['descripcion'] : "";
 
+      $array_estadia = array(
+        "nombre" => $nombre,
+        "descripcion" => $descripcion
+      );
+
       $especialidad = new Especialidad($codigo, $nombre, $descripcion);
 
-      $especialidad->actualizar();
+      $especialidad->update($array_estadia, "codigo", $codigo);
     }
     header("Location: index.php?controller=Especialidad&action=index");
   }

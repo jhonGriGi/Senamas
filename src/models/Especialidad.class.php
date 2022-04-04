@@ -61,41 +61,4 @@ class Especialidad extends BaseModel
 
     $sql->execute();
   }
-
-  public function borrar($codigo)
-  {
-    $sql = $this->dbConnection->prepare("DELETE from especialidad where codigo = ?");
-    $sql->bindParam(1, $codigo);
-    $sql->execute();
-  }
-
-  public function seleccionar($codigo)
-  {
-    $sql = $this->dbConnection->prepare("SELECT * FROM especialidad WHERE codigo = ?");
-
-    $sql->bindParam(1, $codigo);
-    $sql->execute();
-
-    $resultSet = null;
-    // Ahora vamos a indicar el fetch mode cuando llamamos a fetch:
-    if ($row = $sql->fetch(PDO::FETCH_OBJ)) {
-      $resultSet = $row;
-    }
-    return $resultSet;
-  }
-
-  public function actualizar()
-  {
-    $sql = $this->dbConnection->prepare("UPDATE especialidad SET nombre = ?, descripcion = ? WHERE codigo = ?");
-
-    $codigo = $this->getCodigo();
-    $nombre = $this->getNombre();
-    $descripcion = $this->getDescripcion();
-
-    $sql->bindParam(1, $nombre);
-    $sql->bindParam(2, $descripcion);
-    $sql->bindParam(3, $codigo);
-
-    $sql->execute();
-  }
 }

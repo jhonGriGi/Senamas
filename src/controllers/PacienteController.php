@@ -14,7 +14,11 @@ class PacienteController extends BaseController
     $allPacientes = $paciente_obj->getAll();
     // $especialidad = new Especialidad();
     // $lista_especialidades = $especialidad->getAll();
-    require_once 'views/indexView.php';
+
+    // archivo vista que debe incluirse en el layout
+    $current_view = "paciente/pacienteView.php";
+    // se incluye el layout actual
+    require_once 'views/layouts/' . $this->layout;
   }
 
   public function create()
@@ -68,7 +72,7 @@ class PacienteController extends BaseController
     if ($documento) {
       $paciente = new Paciente($documento);
 
-      $paciente->borrar($documento);
+      $paciente->delete("documento", $documento);
     }
     header("Location: index.php?controller=Paciente&action=index");
   }
@@ -80,9 +84,10 @@ class PacienteController extends BaseController
     if ($documento) {
       $paciente = new Paciente($documento);
 
-      $resultado = $paciente->seleccionar($documento);
+      $resultado = $paciente->getOne("documento", $documento);
 
-      require_once 'views/editarView.php';
+      $current_view = "paciente/editarPacienteView.php";
+      require_once 'views/layouts/' . $this->layout;
     }
   }
 
@@ -112,10 +117,19 @@ class PacienteController extends BaseController
         $email,
         $password
       );
+
+      $array_paciente = array(
+        "nombre" => $nombre,
+        "direccion" => $direccion,
+        "telefono" => $telefono,
+        "fecha_nacimiento" => $fecha_nac,
+        "estado" => $estado,
+        "genero" => $genero,
+        "eps" => $eps,
+        "email" => $email,
+      );
+      $paciente_obj->update($array_paciente, "documento", $documento);
     }
-
-    $paciente_obj->actualizar();
-
     header("Location: index.php?controller=Paciente&action=index");
   }
 }

@@ -1,8 +1,13 @@
 <?php
 class BaseController
 {
+  protected $layout;
+
   public function __construct()
   {
+    // Se asigna a la variable un valor de plantilla por defecto
+    $this->layout = "admin_layout.php";
+
     require_once 'Connection.php';
     require_once 'BaseModel.php';
 
