@@ -15,7 +15,7 @@ class EspecialidadController extends BaseController
     $allEspecialidades = $especialidad_obj->getAll();
     // $especialidad = new Especialidad();
     // $lista_especialidades = $especialidad->getAll();
-    $current_view = "estadia/especialidadView.php";
+    $current_view = "especialidad/especialidadView.php";
     require_once 'views/layouts/' . $this->layout;
   }
 
@@ -53,7 +53,7 @@ class EspecialidadController extends BaseController
 
       $resultado = $especialidad->getOne("codigo", $codigo);
 
-      $current_view = "estadia/editarEspecialidadView.php";
+      $current_view = "especialidad/editarEspecialidadView.php";
       require_once 'views/layouts/' . $this->layout;
     }
   }
@@ -65,15 +65,26 @@ class EspecialidadController extends BaseController
       $nombre = isset($_POST['nombre']) ? $_POST['nombre'] : "";
       $descripcion = isset($_POST['descripcion']) ? $_POST['descripcion'] : "";
 
-      $array_estadia = array(
+      $array_especialidad = array(
         "nombre" => $nombre,
         "descripcion" => $descripcion
       );
 
       $especialidad = new Especialidad($codigo, $nombre, $descripcion);
 
-      $especialidad->update($array_estadia, "codigo", $codigo);
+      $especialidad->update($array_especialidad, "codigo", $codigo);
     }
     header("Location: index.php?controller=Especialidad&action=index");
+  }
+
+  public function mostrar()
+  {
+    if (isset($_GET['codigo'])) {
+      $codigo = $_GET['codigo'];
+      $especialidad_obj = new Especialidad($codigo);
+      $datos = $especialidad_obj->getOne("codigo", $codigo);
+      $current_view = "especialidad/listarEspecialidadView.php";
+      require_once 'views/layouts/' . $this->layout;
+    }
   }
 }

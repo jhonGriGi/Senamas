@@ -132,4 +132,15 @@ class PacienteController extends BaseController
     }
     header("Location: index.php?controller=Paciente&action=index");
   }
+
+  public function mostrar()
+  {
+    if (isset($_GET['documento'])) {
+      $documento = $_GET['documento'];
+      $paciente_obj = new Paciente($documento);
+      $datos = $paciente_obj->getOne("documento", $documento);
+      $current_view = "paciente/listarPacienteView.php";
+      require_once 'views/layouts/' . $this->layout;
+    }
+  }
 }
