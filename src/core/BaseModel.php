@@ -76,6 +76,25 @@ class BaseModel extends Connection
       die();
     }
   }
+
+  // public function save($array, $column_db, $primary_key)
+  // {
+  //   try {
+  //     $sql = $this->dbConnection->prepare("INSERT INTO $this->table ($column_db) VALUE (?)");
+  //     $sql->bindParam(1, $primary_key);
+  //     $sql->execute();
+
+  //     foreach ($array as $key => $value) {
+  //       $sql = $this->dbConnection->prepare("UPDATE $this->table SET $key = ? WHERE $column_db = ?");
+  //       $sql->bindParam(1, $value);
+  //       $sql->bindParam(2, $primary_key);
+  //       $sql->execute();
+  //     }
+  //   } catch (PDOException $ex) {
+  //     $ex->getMessage();
+  //     die();
+  //   }
+  // }
   /*
  * Aqui podemos incluir los demás métodos que nos ayuden
  * a hacer operaciones con la base de datos de forma común

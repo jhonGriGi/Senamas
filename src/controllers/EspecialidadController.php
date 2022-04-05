@@ -26,6 +26,12 @@ class EspecialidadController extends BaseController
       $nombre = isset($_POST['nombre']) ? $_POST['nombre'] : "";
       $descripcion = isset($_POST['descripcion']) ? $_POST['descripcion'] : "";
 
+      // $array_especialidad = array(
+      //   "nombre" => $nombre,
+      //   "descripcion" => $descripcion
+      // );
+      // $especialidad_obj->save($array_especialidad, "codigo", $codigo);
+
       $especialidad_obj = new Especialidad($codigo, $nombre, $descripcion);
       $especialidad_obj->save();
     }
