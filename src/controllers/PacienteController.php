@@ -47,6 +47,20 @@ class PacienteController extends BaseController
         $email,
         $password
       );
+
+      // $array_paciente = array(
+      //   "nombre" => $nombre,
+      //   "direccion" => $direccion,
+      //   "telefono" => $telefono,
+      //   "fecha_nacimiento" => $fecha_nac,
+      //   "estado" => $estado,
+      //   "genero" => $genero,
+      //   "eps" => $eps,
+      //   "email" => $email,
+      //   "pass" => $password
+      // );
+      // $paciente_obj->save($array_paciente, "documento", $documento);
+      
       // Se llama al metodo que inserta en la base de datos.
       $paciente_obj->save();
     }
