@@ -48,21 +48,22 @@ class PacienteController extends BaseController
         $password
       );
 
-      // $array_paciente = array(
-      //   "nombre" => $nombre,
-      //   "direccion" => $direccion,
-      //   "telefono" => $telefono,
-      //   "fecha_nacimiento" => $fecha_nac,
-      //   "estado" => $estado,
-      //   "genero" => $genero,
-      //   "eps" => $eps,
-      //   "email" => $email,
-      //   "pass" => $password
-      // );
+      $array_paciente = array(
+        "documento" => $documento,
+        "nombre" => $nombre,
+        "direccion" => $direccion,
+        "telefono" => $telefono,
+        "fecha_nacimiento" => $fecha_nac,
+        "estado" => $estado,
+        "genero" => $genero,
+        "eps" => $eps,
+        "email" => $email,
+        "pass" => $password
+      );
       // $paciente_obj->save($array_paciente, "documento", $documento);
-      
+
       // Se llama al metodo que inserta en la base de datos.
-      $paciente_obj->save();
+      $paciente_obj->save($array_paciente);
     }
     header("Location:index.php?controller=Paciente&action=index");
   }

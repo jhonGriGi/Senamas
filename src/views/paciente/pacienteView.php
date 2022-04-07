@@ -6,7 +6,7 @@
         <hr />
         <div class="form-group">
           <label for="txtDocumento">Documento: </label>
-          <input type="text" class="form-control" id="txtDocumento" name="txtDocumento" placeholder="">
+          <input type="text" required class="form-control" id="txtDocumento" name="txtDocumento" placeholder="">
         </div>
         <div class="form-group">
           <label for="txtNombre">Nombre: </label>

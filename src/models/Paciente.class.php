@@ -209,31 +209,4 @@ class Paciente extends BaseModel
     $this->password = $password;
     return $this;
   }
-  public function save()
-  {
-    // Preparar la consulta para insertar un paciente en la BD
-    $sql = $this->dbConnection->prepare("INSERT INTO paciente (documento, nombre, direccion, telefono, fecha_nacimiento, estado, genero, eps, email, pass) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-    $documento = $this->getDocumento();
-    $nombre = $this->getNombre();
-    $direccion = $this->getDireccion();
-    $telefono = $this->getTelefono();
-    $fecha_nac = $this->getFecha_nacimiento();
-    $estado = $this->getEstado();
-    $genero = $this->getGenero();
-    $eps = $this->getEps();
-    $email = $this->getEmail();
-    $pass = $this->getPassword();
-    $sql->bindParam(1, $documento);
-    $sql->bindParam(2, $nombre);
-    $sql->bindParam(3, $direccion);
-    $sql->bindParam(4, $telefono);
-    $sql->bindParam(5, $fecha_nac);
-    $sql->bindParam(6, $estado);
-    $sql->bindParam(7, $genero);
-    $sql->bindParam(8, $eps);
-    $sql->bindParam(9, $email);
-    $sql->bindParam(10, $pass);
-    // Excecute
-    $sql->execute();
-  }
 }

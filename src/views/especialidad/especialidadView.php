@@ -6,7 +6,7 @@
         <hr />
         <div class="form-group">
           <label for="codigo">Codigo: </label>
-          <input type="text" class="form-control" id="codigo" name="codigo" placeholder="">
+          <input type="text" required class="form-control" id="codigo" name="codigo" placeholder="">
         </div>
         <div class="form-group">
           <label for="nombre">Nombre: </label>
@@ -21,7 +21,7 @@
     </div>
     <div class="col-lg-8">
       <div>
-        <h2>Pacientes</h2>
+        <h2>Especialidades</h2>
         <hr />
       </div>
       <div class="row">

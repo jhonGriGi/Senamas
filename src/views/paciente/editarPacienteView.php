@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-lg-4 mx-auto">
       <form action="<?php echo "index.php?controller=paciente&action=actualizar"; ?>" method="POST">
-        <h2>Añadir Paciente</h2>
+        <h2>Edit de <?php echo $resultado->nombre; ?></h2>
         <hr />
         <div class="form-group">
           <label for="txtDocumento">Documento: </label>

@@ -46,19 +46,4 @@ class Especialidad extends BaseModel
   {
     $this->descripcion = $descripcion;
   }
-
-  public function save()
-  {
-    $sql = $this->dbConnection->prepare("INSERT INTO especialidad VALUES (?,?,?)");
-
-    $codigo = $this->getCodigo();
-    $nombre = $this->getNombre();
-    $descripcion = $this->getDescripcion();
-
-    $sql->bindParam(1, $codigo);
-    $sql->bindParam(2, $nombre);
-    $sql->bindParam(3, $descripcion);
-
-    $sql->execute();
-  }
 }
